@@ -12,6 +12,7 @@ import daji.util.DBUtil;
 import daji.bean.Category;;
 
 public class CategoryDAO {
+	
 	public Category get(int id){
 		Category bean=null;
 		try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();){
@@ -28,6 +29,7 @@ public class CategoryDAO {
 		}
 		return bean;
 	}
+	
 	public int getTotal(){
 		int total=0;
 		try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();){
@@ -41,6 +43,7 @@ public class CategoryDAO {
 		}
 		return total;
 	}
+	
 	public List<Category> list(int start, int count){
 		List<Category> beans=new ArrayList<Category>();
 		String sql="select * from Category order by id asc limit?,?";
@@ -61,6 +64,7 @@ public class CategoryDAO {
 		}
 		return beans;
 	}
+	
 	public List<Category> list(){
 		return list(0,Short.MAX_VALUE);
 	}
