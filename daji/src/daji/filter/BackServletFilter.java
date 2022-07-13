@@ -23,10 +23,12 @@ public class BackServletFilter implements Filter{
 		String context=hsreq.getContextPath();
 		String uri=hsreq.getRequestURI();
 		uri=StringUtils.remove(uri, context);
-		if(uri.startsWith("admin_")){
+		System.out.println("uri is "+uri);
+		if(uri.startsWith("/admin_")){
 			String servletPath=StringUtils.substringBetween(uri, "_", "_");
 			String method=StringUtils.substringAfterLast(uri, "_");
 			hsreq.setAttribute("method", method);
+			System.out.println("servletPath is "+servletPath);
 			sreq.getRequestDispatcher("/"+servletPath).forward(hsreq, hsres);
 			return;
 		}

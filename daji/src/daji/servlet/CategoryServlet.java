@@ -19,7 +19,7 @@ public class CategoryServlet extends BaseServlet {
 		List<Category> cs=categoryDao.list(page.getStart(), page.getCount());
 		int total=categoryDao.getTotal();
 		page.setTotal(total);
-		
+		System.out.println("In CategoryServlet");
 		req.setAttribute("cs", cs);
 		req.setAttribute("page", page);
 		

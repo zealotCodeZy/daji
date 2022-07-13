@@ -44,7 +44,7 @@ public abstract class BaseServlet extends HttpServlet{
 			Method m=this.getClass().getMethod(method, javax.servlet.http.HttpServletRequest.class,
 						javax.servlet.http.HttpServletResponse.class,Page.class);
 			String redirect=m.invoke(this,req,res,page).toString();
-			
+			System.out.println("In BaseServlet, redirect is "+redirect);
 			req.getRequestDispatcher(redirect).forward(req, res);
 
 		} catch (Exception e) {
