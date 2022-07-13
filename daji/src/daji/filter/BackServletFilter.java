@@ -33,9 +33,10 @@ public class BackServletFilter implements Filter{
 		fc.doFilter(hsreq, hsres);
 	}
 	
+	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		
+		System.out.println("filter init");
 	}
 	
 
