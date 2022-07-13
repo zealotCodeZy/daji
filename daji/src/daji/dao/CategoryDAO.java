@@ -16,7 +16,7 @@ public class CategoryDAO {
 	public Category get(int id){
 		Category bean=null;
 		try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();){
-			String sql="select * from Category where id="+id;
+			String sql="select * from category where id="+id;
 			ResultSet rs=s.executeQuery(sql);
 			if(rs.next()){
 				bean=new Category();
@@ -33,7 +33,7 @@ public class CategoryDAO {
 	public int getTotal(){
 		int total=0;
 		try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();){
-			String sql="select count(*) from Category";
+			String sql="select count(*) from category";
 			ResultSet rs=s.executeQuery(sql);
 			if(rs.next()){
 				total=rs.getInt(1);
@@ -46,7 +46,7 @@ public class CategoryDAO {
 	
 	public List<Category> list(int start, int count){
 		List<Category> beans=new ArrayList<Category>();
-		String sql="select * from Category order by id asc limit?,?";
+		String sql="select * from category order by id asc limit ?,? ";
 		try(Connection c=DBUtil.getConnection();PreparedStatement ps=c.prepareStatement(sql);){
 			ps.setInt(1, start);
 			ps.setInt(2, count);
