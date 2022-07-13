@@ -18,6 +18,6 @@
  
     <servlet-mapping>
         <servlet-name>CategoryServlet</servlet-name>
-        <url-pattern>/categoryServlet</url-pattern>
+        <url-pattern>/category</url-pattern>
     </servlet-mapping>
 </web-app>
