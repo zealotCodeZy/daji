@@ -1,24 +1,29 @@
 package daji.servlet;
 
-import java.io.InputStream;
+//import java.io.InputStream;
 
 import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+//import java.util.Iterator;
+//import java.util.List;
+//import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+//import org.apache.commons.fileupload.FileItem;
+//import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+//import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import daji.dao.CategoryDAO;
 import daji.util.Page;
 
 public abstract class BaseServlet extends HttpServlet{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public abstract String list(HttpServletRequest req, HttpServletResponse res, Page page);
 	
 	protected CategoryDAO categoryDao=new CategoryDAO();

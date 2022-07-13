@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class CategoryServlet extends BaseServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public String list(HttpServletRequest req, HttpServletResponse res, Page page){
 		List<Category> cs=categoryDao.list(page.getStart(), page.getCount());
 		int total=categoryDao.getTotal();
