@@ -3,7 +3,7 @@
 <web-app>
     <filter>
         <filter-name>BackServletFilter</filter-name>
-        <filter-class>tmall.filter.BackServletFilter</filter-class>
+        <filter-class>daji.filter.BackServletFilter</filter-class>
     </filter>
  
     <filter-mapping>
@@ -13,7 +13,7 @@
     
     <servlet>
         <servlet-name>CategoryServlet</servlet-name>
-        <servlet-class>tmall.servlet.CategoryServlet</servlet-class>
+        <servlet-class>daji.servlet.CategoryServlet</servlet-class>
     </servlet>
  
     <servlet-mapping>
