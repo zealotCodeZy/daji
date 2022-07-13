@@ -1,6 +1,7 @@
 package daji.filter;
-import java.io.IOException;
 
+import java.io.IOException;
+import org.apache.commons.lang.StringUtils;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -19,9 +20,19 @@ public class BackServletFilter implements Filter{
 	throws IOException,ServletException{
 		HttpServletRequest hsreq=(HttpServletRequest) sreq;
 		HttpServletResponse hsres=(HttpServletResponse) sres;
-		
-		
+		String context=hsreq.getContextPath();
+		String uri=hsreq.getRequestURI();
+		uri=StringUtils.remove(uri, context);
+		if(uri.startsWith("admin_")){
+			String servletPath=StringUtils.substringBetween(uri, "_", "_");
+			String method=StringUtils.substringAfterLast(uri, "_");
+			hsreq.setAttribute("method", method);
+			sreq.getRequestDispatcher("/"+servletPath).forward(hsreq, hsres);
+			return;
+		}
+		fc.doFilter(hsreq, hsres);
 	}
+	
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		
